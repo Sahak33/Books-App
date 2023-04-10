@@ -1,7 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+@import "styles/variables.scss";
 
 body {
   font-family: "Roboto", sans-serif;
+  background: $grey-light;
 }
 
 * {
