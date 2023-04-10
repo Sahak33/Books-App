@@ -22,3 +22,40 @@
     border: 1px solid $grey-medium;
   }
 }
+
+@media (max-width: 992px) {
+  .catalog {
+    &_searchbar {
+      flex-wrap: wrap;
+      .numberInput {
+        min-width: 100%;
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+
+@media (max-width: 620px) {
+  .catalog {
+    &_books {
+      justify-content: center;
+      .card {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .catalog {
+    &_searchbar {
+      .dateInput {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+      .select {
+        width: 100%;
+      }
+    }
+  }
+}

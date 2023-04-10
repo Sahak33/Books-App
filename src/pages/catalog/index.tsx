@@ -11,8 +11,8 @@ const Catalog: FC = () => {
     <div className="catalog">
       <div className="catalog_searchbar">
         <NumberInput />
-        <Select />
         <DateInput />
+        <Select />
       </div>
       <div className="catalog_books">
         {books.map(({ title, published, authors, categories, thumbnailUrl, shortDescription }: any) => (
