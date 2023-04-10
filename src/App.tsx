@@ -1,11 +1,5 @@
-import './App.scss';
+import Routers from "./Routers";
 
-const App = () => {
-  return (
-    <div className="App">
-      Hello Books App
-    </div>
-  );
-}
+const App = () => <Routers />;
 
 export default App;
