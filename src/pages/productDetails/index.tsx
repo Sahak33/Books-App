@@ -32,12 +32,6 @@ const ProductDetails = () => {
           <div>
             <span className="title">Authors:</span>
             <span className="value">
-              {/* {authors?.map((author, i) => (
-                <span key={author}>
-                  {author}
-                  {authors.length - 1 !== i && ", "}
-                </span>
-              ))} */}
               <AddComma data={authors} />
             </span>
           </div>
