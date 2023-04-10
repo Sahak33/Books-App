@@ -12,6 +12,7 @@
     width: fit-content;
     @include flex();
     cursor: pointer;
+    margin-bottom: 20px;
     transition: all 0.3s ease;
     &:hover {
       opacity: 0.7;
@@ -34,6 +35,7 @@
     }
     &_info {
       width: 100%;
+      margin-left: 20px;
       div {
         margin-bottom: 16px;
         .title {
@@ -58,6 +60,28 @@
     .value {
       font-size: 18px;
       line-height: 28px;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .productDetails {
+    &_container {
+      flex-direction: column;
+      &_info {
+        margin-left: 0;
+        margin-top: 30px;
+        div {
+          .value {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+    &_description {
+      .value {
+        font-size: 16px;
+      }
     }
   }
 }
