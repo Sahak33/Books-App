@@ -7,7 +7,6 @@
   margin: 0 auto;
   &_searchbar {
     @include flex(center, space-between);
-    margin-top: 20px;
     background: $white;
     padding: 24px;
     border-radius: 8px;
