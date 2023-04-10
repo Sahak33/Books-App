@@ -1,0 +1,41 @@
+@import "styles/mixines.scss";
+@import "styles/variables.scss";
+
+.search {
+  @include flex(center, flex-start);
+  max-width: 360px;
+  width: 100%;
+  padding: 0 6px;
+  background: $white;
+  border: 1px solid $grey-medium;
+  border-radius: 100px;
+  z-index: 5;
+  &_icon {
+    @include flex();
+    min-width: 42px;
+    min-height: 42px;
+    background: $primary;
+    border-radius: 50%;
+    margin: 6px 0;
+    cursor: pointer;
+    .icon {
+      width: 20px;
+      height: 20px;
+      fill: $white;
+    }
+  }
+  &_input {
+    background: transparent;
+    width: 100%;
+    height: 54px;
+    font-size: 16px;
+    padding: 0 6px;
+  }
+  &_clear_icon {
+    width: 20px;
+    min-width: 20px;
+    height: 20px;
+    cursor: pointer;
+    fill: $grey;
+  }
+}
