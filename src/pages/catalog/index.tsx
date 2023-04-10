@@ -16,7 +16,7 @@ const Catalog: FC = () => {
             authors={authors}
             categories={categories}
             currency={published?.currency}
-            key={thumbnailUrl}
+            key={title}
             price={published?.price}
             shortDescription={shortDescription}
             thumbnailUrl={thumbnailUrl}

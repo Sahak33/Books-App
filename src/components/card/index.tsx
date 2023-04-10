@@ -23,15 +23,15 @@ const Card: FC<ICard> = ({ authors, categories, currency, price, shortDescriptio
         <p className="card_main_authors">
           By{" "}
           {authors?.map((author) => (
-            <span>{author}</span>
+            <span key={author}>{author}</span>
           ))}
-          <p className="card_main_description">{shortDescription}</p>
+          <span className="card_main_description">{shortDescription}</span>
         </p>
       </div>
       <div className="card_footer">
         <p className="card_footer_categories">
           {categories?.map((categori) => (
-            <span>{categori}</span>
+            <span key={categori}>{categori}</span>
           ))}
         </p>
         <p className="card_footer_price">{formatCurrency(price, currency)}</p>
