@@ -1,4 +1,4 @@
-import Routers from "Routers";
+import Routers from "routers";
 
 const App = () => <Routers />;
 
