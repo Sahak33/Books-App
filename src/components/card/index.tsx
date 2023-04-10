@@ -2,6 +2,7 @@ import { FC } from "react";
 import "./Card.scss";
 import { formatCurrency } from "helpers/currency";
 import { Link } from "react-router-dom";
+
 interface ICard {
   authors: string[];
   categories: string[];
