@@ -5,7 +5,7 @@ import { Routes, Route } from "react-router-dom";
 const Routers = () => (
   <Routes>
     <Route path="/" element={<Catalog />} />
-    <Route path="/:id" element={<ProductDetails />} />
+    <Route path="/catalog/:id" element={<ProductDetails />} />
   </Routes>
 );
 
