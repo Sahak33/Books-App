@@ -1,14 +1,18 @@
-import Search from "components/search";
+import NumberInput from "components/inputs/numberInput";
 import "./Catalog.scss";
 import { FC } from "react";
 import { books } from "./data";
 import Card from "components/card";
+import DateInput from "components/inputs/dateInput";
+import Select from "components/inputs/select";
 
 const Catalog: FC = () => {
   return (
     <div className="catalog">
       <div className="catalog_searchbar">
-        <Search />
+        <NumberInput />
+        <Select />
+        <DateInput />
       </div>
       <div className="catalog_books">
         {books.map(({ title, published, authors, categories, thumbnailUrl, shortDescription }: any) => (
