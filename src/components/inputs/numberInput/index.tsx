@@ -1,9 +1,9 @@
 import { ChangeEvent, FC, useState } from "react";
 import { ReactComponent as SearchIcon } from "assets/search.svg";
 import { ReactComponent as CloseIcon } from "assets/close.svg";
-import "./Search.scss";
+import "./NumberInput.scss";
 
-const Search: FC = () => {
+const NumberInput: FC = () => {
   const [search, setSearch] = useState<string>("");
 
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => setSearch(e.target.value);
@@ -20,7 +20,7 @@ const Search: FC = () => {
         id="search"
         onChange={handleOnChange}
         placeholder="Search books..."
-        type="text"
+        type="number"
         value={search}
       />
       {search.length > 0 && <CloseIcon className="search_clear_icon" onClick={handleClearSearch} />}
@@ -28,4 +28,4 @@ const Search: FC = () => {
   );
 };
 
-export default Search;
+export default NumberInput;
