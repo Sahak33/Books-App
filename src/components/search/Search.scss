@@ -2,22 +2,25 @@
 @import "styles/variables.scss";
 
 .search {
+  position: relative;
   @include flex(center, flex-start);
   max-width: 360px;
   width: 100%;
-  padding: 0 6px;
+  height: 56px;
   background: $white;
   border: 1px solid $grey-medium;
   border-radius: 100px;
   z-index: 5;
   &_icon {
+    position: absolute;
+    left: 6px;
     @include flex();
     min-width: 42px;
     min-height: 42px;
     background: $primary;
     border-radius: 50%;
-    margin: 6px 0;
     cursor: pointer;
+    z-index: 6;
     .icon {
       width: 20px;
       height: 20px;
@@ -25,16 +28,19 @@
     }
   }
   &_input {
+    position: absolute;
     background: transparent;
     width: 100%;
     height: 54px;
     font-size: 16px;
-    padding: 0 6px;
+    padding-left: 52px;
   }
   &_clear_icon {
+    position: absolute;
     width: 20px;
     min-width: 20px;
     height: 20px;
+    right: 6px;
     cursor: pointer;
     fill: $grey;
   }
