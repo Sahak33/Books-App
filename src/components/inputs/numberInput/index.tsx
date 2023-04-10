@@ -14,7 +14,7 @@ const NumberInput: FC = () => {
         autoComplete="off"
         className="numberInput_input"
         onChange={handleOnChange}
-        placeholder="Search books..."
+        placeholder="Search price..."
         type="number"
         value={value}
       />
