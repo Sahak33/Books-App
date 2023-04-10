@@ -9,6 +9,8 @@
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   margin: 24px 6px 0px 6px;
   &_main {
+    border-radius: 4px;
+    overflow: hidden;
     &_img {
       display: block;
       height: 300px;
