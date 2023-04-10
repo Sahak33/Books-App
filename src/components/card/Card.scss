@@ -7,9 +7,10 @@
   width: 250px;
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  margin-top: 24px;
+  margin: 24px 6px 0px 6px;
   &_main {
     &_img {
+      display: block;
       height: 300px;
       img {
         width: 100%;
@@ -17,6 +18,8 @@
       }
     }
     &_title {
+      display: block;
+      color: #000;
       margin-top: 6px;
       text-align: center;
       font-weight: 500;

@@ -1,7 +1,7 @@
 import { FC } from "react";
 import "./Card.scss";
 import { formatCurrency } from "helpers/currency";
-
+import { Link } from "react-router-dom";
 interface ICard {
   authors: string[];
   categories: string[];
@@ -16,10 +16,12 @@ const Card: FC<ICard> = ({ authors, categories, currency, price, shortDescriptio
   return (
     <div className="card">
       <div className="card_main">
-        <div className="card_main_img">
+        <Link to="/catalog/5" className="card_main_img">
           <img src={thumbnailUrl} alt="book" />
-        </div>
-        <p className="card_main_title">{title}</p>
+        </Link>
+        <Link to="/catalog/5" className="card_main_title">
+          {title}
+        </Link>
         <p className="card_main_authors">
           By{" "}
           {authors?.map((author) => (
