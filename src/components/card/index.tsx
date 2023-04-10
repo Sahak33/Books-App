@@ -2,6 +2,7 @@ import { FC } from "react";
 import "./Card.scss";
 import { formatCurrency } from "helpers/currency";
 import { Link } from "react-router-dom";
+import AddComma from "components/addComma";
 
 interface ICard {
   authors: string[];
@@ -24,18 +25,13 @@ const Card: FC<ICard> = ({ authors, categories, currency, price, shortDescriptio
           {title}
         </Link>
         <p className="card_main_authors">
-          By{" "}
-          {authors?.map((author) => (
-            <span key={author}>{author}</span>
-          ))}
+          By <AddComma data={authors} />
           <span className="card_main_description">{shortDescription}</span>
         </p>
       </div>
       <div className="card_footer">
         <p className="card_footer_categories">
-          {categories?.map((categori) => (
-            <span key={categori}>{categori}</span>
-          ))}
+          <AddComma data={categories} />
         </p>
         <p className="card_footer_price">{formatCurrency(price, currency)}</p>
       </div>

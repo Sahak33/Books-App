@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { ReactComponent as ArrowLeftIcon } from "assets/arrowLeft.svg";
 import { formatCurrency } from "helpers/currency";
 import { formatDate } from "helpers/date";
+import AddComma from "components/addComma";
 
 const ProductDetails = () => {
   const navigate = useNavigate();
@@ -31,17 +32,19 @@ const ProductDetails = () => {
           <div>
             <span className="title">Authors:</span>
             <span className="value">
-              {authors?.map((author) => (
-                <span key={author}>{author}</span>
-              ))}
+              {/* {authors?.map((author, i) => (
+                <span key={author}>
+                  {author}
+                  {authors.length - 1 !== i && ", "}
+                </span>
+              ))} */}
+              <AddComma data={authors} />
             </span>
           </div>
           <div>
             <span className="title">Categories:</span>
             <span className="value">
-              {categories?.map((categori) => (
-                <span key={categori}>{categori}</span>
-              ))}
+              <AddComma data={categories} />
             </span>
           </div>
           <div>
