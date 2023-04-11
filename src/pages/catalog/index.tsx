@@ -1,5 +1,5 @@
 import NumberInput from "components/inputs/numberInput";
-import { FC, useEffect } from "react";
+import { FC, useEffect, useState } from "react";
 import Card from "components/card";
 import DateInput from "components/inputs/dateInput";
 import Select from "components/inputs/select";
@@ -17,13 +17,9 @@ import "./Catalog.scss";
 const Catalog: FC = () => {
   const dispatch = useAppDispatch();
   const { books, loading, error, categories } = useAppSelector(bookSelector);
+  const [isValid, setIsValid] = useState(false);
 
-  const {
-    handleSubmit,
-    register,
-    reset,
-    formState: { isDirty },
-  } = useForm<IFilterFields>({ mode: "onSubmit" });
+  const { handleSubmit, register, reset, watch } = useForm<IFilterFields>({ mode: "onSubmit" });
 
   const handleClearFilter = () => {
     dispatch(fetchBooksThunk())
@@ -31,7 +27,7 @@ const Catalog: FC = () => {
       .then(() => reset());
   };
   const handleOnSubmit: SubmitHandler<IFilterFields> = (data): void => {
-    if (isDirty) {
+    if (isValid) {
       const params: IFilterFields = {};
 
       for (const key in data) {
@@ -43,6 +39,16 @@ const Catalog: FC = () => {
       dispatch(fetchBooksThunk(params));
     }
   };
+
+  useEffect(() => {
+    const subscription = watch((values) => {
+      if (values.price || values.date || values.category) {
+        return setIsValid(true);
+      }
+      setIsValid(false);
+    });
+    return () => subscription.unsubscribe();
+  }, [watch]);
 
   useEffect(() => {
     dispatch(fetchBooksThunk());
@@ -59,14 +65,14 @@ const Catalog: FC = () => {
         </div>
         <div className="catalog_searchbar_buttons">
           <button
-            disabled={!isDirty}
+            disabled={!isValid}
             type="button"
-            className={`clear_filter ${!isDirty ? "disabled" : ""}`}
+            className={`clear_filter ${!isValid ? "disabled" : ""}`}
             onClick={handleClearFilter}
           >
             Clear Filters
           </button>
-          <button disabled={!isDirty} type="submit" className={`filter ${!isDirty ? "disabled" : ""}`}>
+          <button disabled={!isValid} type="submit" className={`filter ${!isValid ? "disabled" : ""}`}>
             Filter
           </button>
         </div>
