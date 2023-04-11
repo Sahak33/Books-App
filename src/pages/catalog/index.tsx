@@ -9,7 +9,6 @@ import { fetchBooksThunk, fetchCategoriesThunk } from "store/slices/book/thunk";
 import { useAppSelector } from "hooks/useAppSelector";
 import { bookSelector } from "store/selectors/book";
 import { IBook } from "store/types/book";
-import { GET_BOOKS } from "urls/book";
 import "./Catalog.scss";
 
 const Catalog: FC = () => {
@@ -19,8 +18,15 @@ const Catalog: FC = () => {
   const { handleSubmit, register } = useForm({ mode: "onSubmit" });
 
   const handleOnSubmit = (data: any) => {
-    console.log(GET_BOOKS(data), "data");
-    dispatch(fetchBooksThunk(data));
+    const dataMutation: any = {};
+
+    for (const key in data) {
+      if (data[key]) {
+        dataMutation[key] = data[key];
+      }
+    }
+
+    dispatch(fetchBooksThunk(dataMutation));
   };
 
   useEffect(() => {
@@ -33,7 +39,7 @@ const Catalog: FC = () => {
       <form className="catalog_searchbar" onSubmit={handleSubmit(handleOnSubmit)}>
         <div className="catalog_searchbar_fields">
           <NumberInput register={register("price")} />
-          <DateInput register={register("date")} /> 
+          <DateInput register={register("date")} />
           <Select register={register("category")} options={categories} />
         </div>
         <div className="catalog_searchbar_buttons">
