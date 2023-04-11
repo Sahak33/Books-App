@@ -9,6 +9,7 @@ import { useAppDispatch } from "hooks/useAppDispatch";
 import { fetchBookThunk } from "store/slices/book/thunk";
 import { useAppSelector } from "hooks/useAppSelector";
 import { bookSelector } from "store/selectors/book";
+import Loading from "components/loading";
 
 const ProductDetails = () => {
   const { book, loading, error } = useAppSelector(bookSelector);
@@ -27,7 +28,7 @@ const ProductDetails = () => {
 
   return (
     <div className="productDetails">
-      {loading && <p>Loading ...</p>}
+      {loading && <Loading />}
       {!loading && error && <p>{error}</p>}
       {!loading && book && (
         <>
