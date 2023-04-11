@@ -43,6 +43,14 @@
     border-radius: 8px;
     border: 1px solid $grey-medium;
   }
+  &_empty {
+    @include flex();
+    width: 100%;
+    height: 100%;
+    font-size: 28px;
+    font-weight: 500;
+    color: $grey;
+  }
 }
 
 @media (max-width: 992px) {

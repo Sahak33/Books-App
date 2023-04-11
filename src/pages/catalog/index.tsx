@@ -69,6 +69,7 @@ const Catalog: FC = () => {
               title={title}
             />
           ))}
+        {!loading && !error && books.length === 0 && <p className="catalog_empty">Not Available...</p>}
       </div>
     </div>
   );
