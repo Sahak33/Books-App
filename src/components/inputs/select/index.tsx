@@ -10,6 +10,7 @@ interface ISelect {
 const Select: FC<ISelect> = ({ register, options }) => {
   return (
     <select className="select" {...register}>
+      <option value="">Choose Categories</option>
       {options?.map(({ name, id }) => (
         <option key={id} value={name}>
           {name}

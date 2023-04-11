@@ -1,6 +1,6 @@
 export interface IInitialBook {
-  book: any;
-  books: any;
+  book: IBook;
+  books: IBook[];
   categories: { id: number; name: string }[];
   error: string | undefined;
   loading: boolean;

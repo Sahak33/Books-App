@@ -3,30 +3,31 @@ import { FC, useEffect } from "react";
 import Card from "components/card";
 import DateInput from "components/inputs/dateInput";
 import Select from "components/inputs/select";
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { useAppDispatch } from "hooks/useAppDispatch";
 import { fetchBooksThunk, fetchCategoriesThunk } from "store/slices/book/thunk";
 import { useAppSelector } from "hooks/useAppSelector";
 import { bookSelector } from "store/selectors/book";
 import { IBook } from "store/types/book";
+import { IFilterFields } from "types";
 import "./Catalog.scss";
 
 const Catalog: FC = () => {
   const dispatch = useAppDispatch();
   const { books, loading, error, categories } = useAppSelector(bookSelector);
 
-  const { handleSubmit, register } = useForm({ mode: "onSubmit" });
+  const { handleSubmit, register } = useForm<IFilterFields>({ mode: "onSubmit" });
 
-  const handleOnSubmit = (data: any) => {
-    const dataMutation: any = {};
+  const handleOnSubmit: SubmitHandler<IFilterFields> = (data): void => {
+    const params: IFilterFields = {};
 
     for (const key in data) {
       if (data[key]) {
-        dataMutation[key] = data[key];
+        params[key] = data[key];
       }
     }
 
-    dispatch(fetchBooksThunk(dataMutation));
+    dispatch(fetchBooksThunk(params));
   };
 
   useEffect(() => {

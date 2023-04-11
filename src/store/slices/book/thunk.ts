@@ -1,11 +1,12 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { getBook, getBooks, getCategories } from "services/book";
 import { IBook } from "store/types/book";
+import { IFilterFields } from "types";
 
-export const fetchBooksThunk = createAsyncThunk<IBook[], { price?: string; category?: string; date?: string } | undefined, { rejectValue: string }>(
+export const fetchBooksThunk = createAsyncThunk<IBook[], IFilterFields | undefined, { rejectValue: string }>(
   "fetchBooks",
-  async (data, { rejectWithValue }) => {
-    return getBooks(data)
+  async (params, { rejectWithValue }) => {
+    return getBooks(params)
       .then(({ data }) => data)
       .catch((e) => rejectWithValue(e.message));
   }
