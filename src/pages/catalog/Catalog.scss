@@ -2,8 +2,10 @@
 @import "styles/variables.scss";
 
 .catalog {
+  display: flex;
+  flex-direction: column;
   max-width: 95vw;
-  height: 100vh;
+  height: 100%;
   margin: 0 auto;
   &_searchbar {
     background: $white;
@@ -32,6 +34,8 @@
   }
   &_books {
     @include flex(stretch, space-between);
+    height: 100%;
+    overflow-y: auto;
     flex-wrap: wrap;
     margin-top: 20px;
     background: $white;

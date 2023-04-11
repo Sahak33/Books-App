@@ -11,6 +11,7 @@ import { bookSelector } from "store/selectors/book";
 import { IBook } from "store/types/book";
 import { IFilterFields } from "types";
 import "./Catalog.scss";
+import Loading from "components/loading";
 
 const Catalog: FC = () => {
   const dispatch = useAppDispatch();
@@ -49,7 +50,7 @@ const Catalog: FC = () => {
         </div>
       </form>
       <div className="catalog_books">
-        {loading && <p>Loading ...</p>}
+        {loading && <Loading />}
         {!loading && error && <p>{error}</p>}
         {!loading &&
           books &&
