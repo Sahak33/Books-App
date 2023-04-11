@@ -18,18 +18,31 @@ const Catalog: FC = () => {
   const dispatch = useAppDispatch();
   const { books, loading, error, categories } = useAppSelector(bookSelector);
 
-  const { handleSubmit, register } = useForm<IFilterFields>({ mode: "onSubmit" });
-
+  const {
+    handleSubmit,
+    register,
+    reset,
+    formState: { dirtyFields },
+  } = useForm<IFilterFields>({ mode: "onSubmit" });
+  const isValid = Object.keys(dirtyFields).length > 0;
+  
+  const handleClearFilter = () => {
+    dispatch(fetchBooksThunk())
+      .unwrap()
+      .then(() => reset());
+  };
   const handleOnSubmit: SubmitHandler<IFilterFields> = (data): void => {
-    const params: IFilterFields = {};
+    if (isValid) {
+      const params: IFilterFields = {};
 
-    for (const key in data) {
-      if (data[key]) {
-        params[key] = data[key];
+      for (const key in data) {
+        if (data[key]) {
+          params[key] = data[key];
+        }
       }
-    }
 
-    dispatch(fetchBooksThunk(params));
+      dispatch(fetchBooksThunk(params));
+    }
   };
 
   useEffect(() => {
@@ -46,8 +59,17 @@ const Catalog: FC = () => {
           <Select register={register("category")} options={categories} />
         </div>
         <div className="catalog_searchbar_buttons">
-          <button>Filter</button>
-          <button>Clear Filters</button>
+          <button
+            disabled={!isValid}
+            type="button"
+            className={`clear_filter ${!isValid ? "disabled" : ""}`}
+            onClick={handleClearFilter}
+          >
+            Clear Filters
+          </button>
+          <button disabled={!isValid} type="submit" className={`filter ${!isValid ? "disabled" : ""}`}>
+            Filter
+          </button>
         </div>
       </form>
       <div className="catalog_books">
