@@ -14,7 +14,7 @@ const ProductDetails = () => {
   const { book, loading, error } = useAppSelector(bookSelector);
   const dispatch = useAppDispatch();
 
-  const date = new Date(book?.published?.$date);
+  const date = new Date(book?.published?.date);
 
   const navigate = useNavigate();
   const { id } = useParams();
