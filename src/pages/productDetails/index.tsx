@@ -74,7 +74,7 @@ const ProductDetails = () => {
           </div>
           <div className="productDetails_description">
             <p className="title">Description</p>
-            <p className="value">{book?.short_description}</p>
+            <p className="value">{book?.long_description}</p>
           </div>
         </>
       )}

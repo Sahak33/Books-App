@@ -1,8 +1,9 @@
 export interface IInitialBook {
-  books: any;
   book: any;
-  loading: boolean;
+  books: any;
+  categories: { id: number; name: string }[];
   error: string | undefined;
+  loading: boolean;
 }
 
 export interface IBook {
@@ -10,14 +11,15 @@ export interface IBook {
   categories: string[];
   id: number;
   isbn: string;
+  long_description: string;
   page_count: number;
-  short_description: string;
-  status: string;
-  thumbnail_url: string;
-  title: string;
   published: {
     date: string;
     price: number;
     currency: string;
   };
+  short_description: string;
+  status: string;
+  thumbnail_url: string;
+  title: string;
 }

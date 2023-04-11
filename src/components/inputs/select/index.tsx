@@ -4,17 +4,17 @@ import { FC } from "react";
 
 interface ISelect {
   register: UseFormRegisterReturn;
+  options: { id: number; name: string }[];
 }
 
-const Select: FC<ISelect> = ({ register }) => {
+const Select: FC<ISelect> = ({ register, options }) => {
   return (
     <select className="select" {...register}>
-      <option>Open Source</option>
-      <option>Mobile</option>
-      <option>Java</option>
-      <option>Software Engineering</option>
-      <option>Internet</option>
-      <option>Web Development</option>
+      {options?.map(({ name, id }) => (
+        <option key={id} value={name}>
+          {name}
+        </option>
+      ))}
     </select>
   );
 };
