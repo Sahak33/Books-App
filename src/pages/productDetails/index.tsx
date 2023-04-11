@@ -42,13 +42,17 @@ const ProductDetails = () => {
             <div className="productDetails_container_info">
               <div>
                 <span className="title">Title:</span>
-                <span className="value">{book?.title}</span>
+                {book?.title ? <span className="value">{book?.title}</span> : "-"}
               </div>
               <div>
                 <span className="title">Authors:</span>
-                <span className="value">
-                  <AddComma data={book?.authors} />
-                </span>
+                {book?.authors?.length > 0 ? (
+                  <span className="value">
+                    <AddComma data={book?.authors} />
+                  </span>
+                ) : (
+                  "-"
+                )}
               </div>
               <div>
                 <span className="title">Categories:</span>
@@ -56,19 +60,23 @@ const ProductDetails = () => {
                   <AddComma data={book?.categories} />
                 </span>
               </div>
-              {book?.published && (
+              {book?.published?.currency && (
                 <div>
                   <span className="title">Price:</span>
-                  <span className="value">{formatCurrency(book?.published?.price, book?.published?.currency)}</span>
+                  {book?.published?.currency && book?.published?.price ? (
+                    <span className="value">{formatCurrency(book?.published?.price, book?.published?.currency)}</span>
+                  ) : (
+                    "-"
+                  )}
                 </div>
               )}
               <div>
                 <span className="title">Date:</span>
-                <span className="value">{formatDate(date)}</span>
+                {date ? <span className="value">{formatDate(date)}</span> : "-"}
               </div>
               <div>
                 <span className="title">Status:</span>
-                <span className="value">{book?.status}</span>
+                {book?.status ? <span className="value">{book?.status}</span> : "-"}
               </div>
             </div>
           </div>
