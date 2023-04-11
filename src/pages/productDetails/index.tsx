@@ -10,6 +10,7 @@ import { fetchBookThunk } from "store/slices/book/thunk";
 import { useAppSelector } from "hooks/useAppSelector";
 import { bookSelector } from "store/selectors/book";
 import Loading from "components/loading";
+import Error from "components/error";
 
 const ProductDetails = () => {
   const { book, loading, error } = useAppSelector(bookSelector);
@@ -29,8 +30,8 @@ const ProductDetails = () => {
   return (
     <div className="productDetails">
       {loading && <Loading />}
-      {!loading && error && <p>{error}</p>}
-      {!loading && book && (
+      {!loading && error && <Error error={error} />}
+      {!loading && !error && book && (
         <>
           <div className="productDetails_back" onClick={navigateToBack}>
             <ArrowLeftIcon className="productDetails_back_icon" />

@@ -10,8 +10,9 @@ import { useAppSelector } from "hooks/useAppSelector";
 import { bookSelector } from "store/selectors/book";
 import { IBook } from "store/types/book";
 import { IFilterFields } from "types";
-import "./Catalog.scss";
 import Loading from "components/loading";
+import Error from "components/error";
+import "./Catalog.scss";
 
 const Catalog: FC = () => {
   const dispatch = useAppDispatch();
@@ -51,8 +52,9 @@ const Catalog: FC = () => {
       </form>
       <div className="catalog_books">
         {loading && <Loading />}
-        {!loading && error && <p>{error}</p>}
+        {!loading && error && <Error error={error} />}
         {!loading &&
+          !error &&
           books &&
           books?.map(({ title, published, authors, categories, thumbnail_url, short_description, id }: IBook) => (
             <Card
