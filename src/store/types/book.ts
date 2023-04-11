@@ -15,4 +15,9 @@ export interface IBook {
   status: string;
   thumbnail_url: string;
   title: string;
+  published: {
+    date: string;
+    price: number;
+    currency: string;
+  };
 }
