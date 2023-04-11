@@ -24,16 +24,18 @@ const Card: FC<ICard> = ({ authors, categories, currency, price, shortDescriptio
         <Link to="/catalog/5" className="card_main_title">
           {title}
         </Link>
-        <p className="card_main_authors">
-          By <AddComma data={authors} />
-          <span className="card_main_description">{shortDescription}</span>
-        </p>
+        {authors?.length > 0 && (
+          <p className="card_main_authors">
+            By <AddComma data={authors} />
+            <span className="card_main_description">{shortDescription}</span>
+          </p>
+        )}
       </div>
       <div className="card_footer">
         <p className="card_footer_categories">
           <AddComma data={categories} />
         </p>
-        <p className="card_footer_price">{formatCurrency(price, currency)}</p>
+        {price && currency && <p className="card_footer_price">{formatCurrency(price, currency)}</p>}
       </div>
     </div>
   );
