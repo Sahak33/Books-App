@@ -28,7 +28,7 @@ const ProductDetails = () => {
   return (
     <div className="productDetails">
       {loading && <p>Loading ...</p>}
-      {!loading && !book && <p>{error} ...</p>}
+      {!loading && error && <p>{error}</p>}
       {!loading && book && (
         <>
           <div className="productDetails_back" onClick={navigateToBack}>
