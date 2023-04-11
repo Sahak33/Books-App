@@ -22,17 +22,16 @@ const Catalog: FC = () => {
     handleSubmit,
     register,
     reset,
-    formState: { dirtyFields },
+    formState: { isDirty },
   } = useForm<IFilterFields>({ mode: "onSubmit" });
-  const isValid = Object.keys(dirtyFields).length > 0;
-  
+
   const handleClearFilter = () => {
     dispatch(fetchBooksThunk())
       .unwrap()
       .then(() => reset());
   };
   const handleOnSubmit: SubmitHandler<IFilterFields> = (data): void => {
-    if (isValid) {
+    if (isDirty) {
       const params: IFilterFields = {};
 
       for (const key in data) {
@@ -60,14 +59,14 @@ const Catalog: FC = () => {
         </div>
         <div className="catalog_searchbar_buttons">
           <button
-            disabled={!isValid}
+            disabled={!isDirty}
             type="button"
-            className={`clear_filter ${!isValid ? "disabled" : ""}`}
+            className={`clear_filter ${!isDirty ? "disabled" : ""}`}
             onClick={handleClearFilter}
           >
             Clear Filters
           </button>
-          <button disabled={!isValid} type="submit" className={`filter ${!isValid ? "disabled" : ""}`}>
+          <button disabled={!isDirty} type="submit" className={`filter ${!isDirty ? "disabled" : ""}`}>
             Filter
           </button>
         </div>
