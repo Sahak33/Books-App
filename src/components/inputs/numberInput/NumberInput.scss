@@ -2,33 +2,16 @@
 @import "styles/variables.scss";
 
 .numberInput {
-  position: relative;
-  @include flex(center, flex-start);
   max-width: 360px;
   width: 100%;
-  height: 44px;
   background: $grey-light;
   border: 1px solid $grey-medium;
   border-radius: 8px;
-  z-index: 5;
-  &_input {
-    position: absolute;
-    background: transparent;
-    width: 100%;
-    height: 42px;
-    font-size: 16px;
-    padding-left: 8px;
-    padding-right: 34px;
-  }
-  &_clear_icon {
-    position: absolute;
-    width: 18px;
-    min-width: 18px;
-    height: 18px;
-    right: 6px;
-    cursor: pointer;
-    fill: $grey;
-  }
+  width: 100%;
+  height: 42px;
+  font-size: 16px;
+  padding: 0 16px;
+
   /* Chrome, Safari, Edge, Opera */
   input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button {
