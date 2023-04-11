@@ -1,23 +1,19 @@
-import { ChangeEvent, FC, useState } from "react";
+import { FC, useState } from "react";
+import { UseFormRegisterReturn } from "react-hook-form";
 import { ReactComponent as CloseIcon } from "assets/close.svg";
 import "./NumberInput.scss";
 
-const NumberInput: FC = () => {
-  const [value, setValue] = useState<string>("");
+interface INumberInput {
+  register: UseFormRegisterReturn;
+}
 
-  const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => setValue(e.target.value);
+const NumberInput: FC<INumberInput> = ({ register }) => {
+  const [value, setValue] = useState<string>("");
   const handleClearSearch = () => setValue("");
 
   return (
     <div className="numberInput">
-      <input
-        autoComplete="off"
-        className="numberInput_input"
-        onChange={handleOnChange}
-        placeholder="Search price..."
-        type="number"
-        value={value}
-      />
+      <input autoComplete="off" className="numberInput_input" placeholder="Search price..." type="number" {...register} />
       {value.length > 0 && <CloseIcon className="numberInput_clear_icon" onClick={handleClearSearch} />}
     </div>
   );

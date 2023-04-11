@@ -5,15 +5,22 @@ import { books } from "./data";
 import Card from "components/card";
 import DateInput from "components/inputs/dateInput";
 import Select from "components/inputs/select";
+import { useForm } from "react-hook-form";
 
 const Catalog: FC = () => {
+  const { handleSubmit, register } = useForm({ mode: "onSubmit" });
+
+  const handleOnSubmit = (data: any) => {
+    console.log(data, "data");
+  };
+
   return (
     <div className="catalog">
-      <form className="catalog_searchbar">
+      <form className="catalog_searchbar" onSubmit={handleSubmit(handleOnSubmit)}>
         <div className="catalog_searchbar_fields">
-          <NumberInput />
-          <DateInput />
-          <Select />
+          <NumberInput register={register("price")} />
+          <DateInput register={register("date")} />
+          <Select register={register("categori")} />
         </div>
         <div className="catalog_searchbar_buttons">
           <button>Filter</button>
