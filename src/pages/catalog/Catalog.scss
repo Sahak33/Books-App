@@ -6,11 +6,29 @@
   height: 100vh;
   margin: 0 auto;
   &_searchbar {
-    @include flex(center, space-between);
     background: $white;
     padding: 24px;
     border-radius: 8px;
     border: 1px solid $grey-medium;
+    &_fields {
+      @include flex(center, space-between);
+    }
+    &_buttons {
+      margin-top: 20px;
+      @include flex(center, flex-end);
+      button {
+        background: $primary;
+        border-radius: 4px;
+        color: $white;
+        padding: 8px 16px;
+        margin-left: 10px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+    }
   }
   &_books {
     @include flex(stretch, space-between);
@@ -26,10 +44,12 @@
 @media (max-width: 992px) {
   .catalog {
     &_searchbar {
-      flex-wrap: wrap;
-      .numberInput {
-        min-width: 100%;
-        margin-bottom: 20px;
+      &_fields {
+        flex-wrap: wrap;
+        .numberInput {
+          min-width: 100%;
+          margin-bottom: 20px;
+        }
       }
     }
   }
@@ -49,12 +69,14 @@
 @media (max-width: 500px) {
   .catalog {
     &_searchbar {
-      .dateInput {
-        width: 100%;
-        margin-bottom: 20px;
-      }
-      .select {
-        width: 100%;
+      &_fields {
+        .dateInput {
+          width: 100%;
+          margin-bottom: 20px;
+        }
+        .select {
+          width: 100%;
+        }
       }
     }
   }

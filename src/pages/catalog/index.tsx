@@ -9,11 +9,17 @@ import Select from "components/inputs/select";
 const Catalog: FC = () => {
   return (
     <div className="catalog">
-      <div className="catalog_searchbar">
-        <NumberInput />
-        <DateInput />
-        <Select />
-      </div>
+      <form className="catalog_searchbar">
+        <div className="catalog_searchbar_fields">
+          <NumberInput />
+          <DateInput />
+          <Select />
+        </div>
+        <div className="catalog_searchbar_buttons">
+          <button>Filter</button>
+          <button>Clear Filters</button>
+        </div>
+      </form>
       <div className="catalog_books">
         {books.map(({ title, published, authors, categories, thumbnailUrl, shortDescription }: any) => (
           <Card
