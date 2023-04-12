@@ -19,10 +19,10 @@ const Card: FC<ICard> = ({ authors, categories, currency, id, price, shortDescri
   return (
     <div className="card">
       <div className="card_main">
-        <Link to={`catalog/${id}`} className="card_main_img">
+        <Link to={`book/${id}`} className="card_main_img">
           <img src={thumbnailUrl} alt="book" />
         </Link>
-        <Link to={`catalog/${id}`} className="card_main_title">
+        <Link to={`book/${id}`} className="card_main_title">
           {title}
         </Link>
         {authors?.length > 0 && (

@@ -1,7 +1,7 @@
 @import "styles/mixines.scss";
 @import "styles/variables.scss";
 
-.productDetails {
+.bookDetails {
   display: flex;
   flex-direction: column;
   overflow-y: auto;
@@ -68,7 +68,7 @@
 }
 
 @media (max-width: 600px) {
-  .productDetails {
+  .bookDetails {
     &_container {
       flex-direction: column;
       &_info {

@@ -1,7 +1,7 @@
 import { render } from "@testing-library/react";
 import { helpRouter } from "test/App.test";
 import "@testing-library/jest-dom/extend-expect";
-import ProductDetails from "pages/productDetails";
+import BookDetails from "pages/bookDetails";
 
 const navigate = jest.fn();
 const navigateToBack = () => navigate("/");
@@ -9,7 +9,7 @@ const navigateToBack = () => navigate("/");
 describe("productDitails", () => {
 
   beforeEach(() => {
-    render(helpRouter(<ProductDetails />));
+    render(helpRouter(<BookDetails />));
   });
   it("should navigate to the root path", () => {
     navigateToBack();

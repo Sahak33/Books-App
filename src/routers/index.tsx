@@ -1,11 +1,11 @@
 import Catalog from "pages/catalog";
-import ProductDetails from "pages/productDetails";
+import BookDetails from "pages/bookDetails";
 import { Routes, Route } from "react-router-dom";
 
 const Routers = () => (
   <Routes>
     <Route path="/" element={<Catalog />} />
-    <Route path="/catalog/:id" element={<ProductDetails />} />
+    <Route path="/book/:id" element={<BookDetails />} />
   </Routes>
 );
 
