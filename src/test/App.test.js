@@ -11,6 +11,6 @@ export const helpRouter = (childe) => {
   );
 };
 
-it("renders learn react link", () => {
+it("renders App", () => {
   render(helpRouter(<App />));
 });
