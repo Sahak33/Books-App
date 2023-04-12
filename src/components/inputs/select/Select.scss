@@ -9,3 +9,9 @@
   font-size: 16px;
   height: 44px;
 }
+
+@media (max-width: 500px) {
+  .select {
+    height: 38px;
+  }
+}

@@ -7,7 +7,7 @@
   background: $grey-light;
   border: 1px solid $grey-medium;
   border-radius: 8px;
-  height: 42px;
+  height: 44px;
   font-size: 16px;
   padding: 0 16px;
 
@@ -21,5 +21,11 @@
   /* Firefox */
   &[type="number"] {
     -moz-appearance: textfield;
+  }
+}
+
+@media (max-width: 500px) {
+  .numberInput {
+    height: 38px;
   }
 }

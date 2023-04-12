@@ -92,6 +92,7 @@
 @media (max-width: 500px) {
   .catalog {
     &_searchbar {
+      padding: 12px;
       &_fields {
         .dateInput {
           width: 100%;
