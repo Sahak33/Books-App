@@ -1,14 +1,17 @@
-import { render, screen, fireEvent, userEvent, waitFor } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import NumberInput from 'components/inputs/numberInput';
-import '@testing-library/jest-dom/extend-expect';
 import { helpRouter } from 'test/App.test';
+import '@testing-library/jest-dom/extend-expect';
 
 describe('number', () => {
   beforeEach(() => {
-   render(helpRouter(<NumberInput />));
+    render(helpRouter(<NumberInput register={() => { }} />));
   });
 
-  afterEach(() => {});
+  it('renders a number input field', () => {
+    const input = screen.getByPlaceholderText('Search price...');
+    expect(input).toBeInTheDocument();
+  });
 
   it('test number input', () => {
     const nameInput = screen.getByPlaceholderText('Search price...');

@@ -6,7 +6,6 @@ describe("select", () => {
   beforeEach(() => {
     render(helpRouter(<Select />));
   });
-  afterEach(() => { });
   it("test select option content", () => {
     expect(screen.getByText("Choose Categories").textContent).toBe("Choose Categories")
   });

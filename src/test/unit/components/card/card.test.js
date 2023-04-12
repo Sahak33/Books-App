@@ -16,7 +16,6 @@ describe("card", () => {
     };
     render(helpRouter(<Card {...props} />));
   });
-  afterEach(() => { });
   it("renders the book price formatted as currency", () => {
     const price = screen.getByText("$9.99");
     expect(price).toBeInTheDocument();
