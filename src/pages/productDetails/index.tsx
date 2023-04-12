@@ -48,7 +48,7 @@ const ProductDetails = () => {
               </div>
               <div>
                 <span className="title">Authors:</span>
-                {book?.authors?.length > 0 ? (
+                {book?.authors?.length ? (
                   <span className="value">
                     <AddComma data={book?.authors} />
                   </span>

@@ -3,8 +3,7 @@
 
 .loading_container {
   @include flex();
-  height: 100%;
-  width: 100%;
+  @include full-w-h;
   .loading {
     border: 16px solid $grey;
     border-radius: 50%;

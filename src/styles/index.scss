@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
 @import "styles/variables.scss";
+@import "styles/mixines.scss";
 
 body {
   font-family: "Roboto", sans-serif;
@@ -34,8 +35,7 @@ a:active {
 
 html,
 body {
-  height: 100%;
-  width: 100%;
+  @include full-w-h;
   font-size: 100%;
   line-height: 1;
   font-size: 14px;
@@ -70,8 +70,7 @@ ul li {
 }
 img {
   vertical-align: top;
-  width: 100%;
-  height: 100%;
+  @include full-w-h;
 }
 
 h1,
