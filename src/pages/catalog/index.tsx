@@ -27,17 +27,15 @@ const Catalog: FC = () => {
       .then(() => reset());
   };
   const handleOnSubmit: SubmitHandler<IFilterFields> = (data): void => {
-    if (isValid) {
-      const params: IFilterFields = {};
+    const params: IFilterFields = {};
 
-      for (const key in data) {
-        if (data[key]) {
-          params[key] = data[key];
-        }
+    for (const key in data) {
+      if (data[key]) {
+        params[key] = data[key];
       }
-
-      dispatch(fetchBooksThunk(params));
     }
+
+    dispatch(fetchBooksThunk(params));
   };
 
   useEffect(() => {
@@ -72,7 +70,7 @@ const Catalog: FC = () => {
           >
             Clear Filters
           </button>
-          <button disabled={!isValid} type="submit" className={`filter ${!isValid ? "disabled" : ""}`}>
+          <button type="submit" className="filter">
             Filter
           </button>
         </div>
