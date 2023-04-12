@@ -58,9 +58,13 @@ const ProductDetails = () => {
               </div>
               <div>
                 <span className="title">Categories:</span>
-                <span className="value">
-                  <AddComma data={book?.categories} />
-                </span>
+                {book?.categories?.length ? (
+                  <span className="value">
+                    <AddComma data={book?.categories} />
+                  </span>
+                ) : (
+                  "-"
+                )}
               </div>
               {book?.published?.currency && (
                 <div>
