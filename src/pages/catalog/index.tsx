@@ -75,7 +75,7 @@ const Catalog: FC = () => {
           </button>
         </div>
       </form>
-      <div className="catalog_books">
+      <div className="catalog_books custom_scroll">
         {loading && <Loading />}
         {!loading && error && <Error error={error} />}
         {!loading &&

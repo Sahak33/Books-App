@@ -28,7 +28,7 @@ const ProductDetails = () => {
   }, []);
 
   return (
-    <div className="productDetails">
+    <div className="productDetails custom_scroll">
       {loading && <Loading />}
       {!loading && error && <Error error={error} />}
       {!loading && !error && book && (
